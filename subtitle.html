@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>字幕</title>
+    <style>
+        .text {
+            text-align: left;
+            font-size: 50px;
+            line-height: 2;
+            color: #fff;
+            font-weight: bold;
+            position: absolute;
+            bottom: 0px;
+        }
+        .multiple-text-shadow {
+            text-shadow: 0 0 4px #32003C,
+            0 0 4px #32003C,
+            0 0 4px #32003C,
+            0 0 4px #32003C,
+            0 0 4px #32003C,
+            0 0 4px #32003C,
+            0 0 4px #32003C;
+        }
+    </style>
+</head>
+<body>
+    <div class="multiple-text-shadow text" id="subtitle_text"></div>
+</body>
+<script src="https://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    textbox = document.getElementById("subtitle_text");
+    let style = window.getComputedStyle(textbox, null).getPropertyValue('font-size');
+    DEFAULT_FONT_SIZE = parseFloat(style);
+    console.log(textbox.style)
+    let time;
+    time = setInterval(function () {
+        $.get("http://127.0.0.1:7777/subtitle", function(data) {
+            console.log(data)
+            // 获取当前页面的根元素
+            // 获取当前设备的视口宽度
+            let view_width = document.body.clientWidth;
+            // console.log(view_width)
+            // 计算 font-size 的值
+            let font_size  = Math.min(DEFAULT_FONT_SIZE * 2, Math.max(DEFAULT_FONT_SIZE, Math.floor(view_width/data.length)))
+            // console.log(DEFAULT_FONT_SIZE)
+            // 设置当前的 html 的 font-size 属性的值 
+            textbox.style.fontSize = font_size + 'px';
+            textbox.innerHTML = data;
+        })
+    }, 200);
+</script>
+</html>
