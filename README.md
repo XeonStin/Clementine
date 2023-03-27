@@ -4,7 +4,7 @@
 
 读取 Bilibili 弹幕功能来自于 [blivedm](https://github.com/xfgryujk/blivedm)。
 
-## 需求
+## 依赖
 
 flask, flask_cors,
 
