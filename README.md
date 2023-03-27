@@ -10,12 +10,13 @@
 
 ## 依赖
 
-flask, flask_cors, openai-python, pyttsx3, python-vlc, VLC播放器, speech_recognition, zhconv, zhon,
+flask, flask_cors, openai-python, pyttsx3, python-vlc, VLC播放器, speech_recognition, zhconv, zhon, blivedm 依赖库（见 [blivedm](https://github.com/xfgryujk/blivedm)）
 
-blivedm 依赖库（见 [blivedm](https://github.com/xfgryujk/blivedm)）
+注：
 
-注：`pyttsx3/drivers/sapi5.py` 存在无法逐词更新的 bug，需要用 `./edited_files/sapi5.py` 替换对应文件
-`speech_recognition` 存在无法传递 Whisper API Prompt 的 bug，需要用 `./edited_files/audio.py`, `./edited_files/whisper.py` 替换对应文件
+1. `pyttsx3/drivers/sapi5.py` 存在无法逐词更新的 bug，需要用 `./edited_files/sapi5.py` 替换对应文件
+
+1. `speech_recognition` 存在无法传递 Whisper API Prompt 的 bug，需要用 `./edited_files/audio.py`, `./edited_files/whisper.py` 替换对应文件
 
 ## 配置
 
