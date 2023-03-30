@@ -45,7 +45,7 @@ class ChatGPTConversation:
     
 
     def clear(self):
-        self = ChatGPTConversation()
+        self.history_messages = []
         logging.info(f'ChatGPT: History cleared')
     
 
@@ -67,11 +67,3 @@ class ChatGPTConversation:
         reply_message = response['choices'][0]['message']['content'].strip()
 
         return reply_message 
-
-
-class Nekomusume(ChatGPTConversation):   
-    INSTRUCTION_DEFAULT = '你是一只猫娘。你的名字是猫猫。你的每句话都要突出你是猫娘的特点。用二十字以内回答。'
-
-    def __init__(self, instruction=INSTRUCTION_DEFAULT):
-        super(Nekomusume, self).__init__(instruction)
-    
