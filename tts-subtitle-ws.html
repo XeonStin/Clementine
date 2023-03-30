@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>语音合成 & 字幕</title>
+    <style>
+      .subtitle {
+          text-align: left;
+          font-size: 50px;
+          line-height: 2;
+          color: #fff;
+          font-weight: bold;
+          position: absolute;
+          bottom: 0px;
+      }
+      .multiple-text-shadow {
+          text-shadow: 0 0 4px #32003C,
+          0 0 4px #32003C,
+          0 0 4px #32003C,
+          0 0 4px #32003C,
+          0 0 4px #32003C,
+          0 0 4px #32003C,
+          0 0 4px #32003C;
+      }
+  </style>
+  </head>
+
+  <body>
+  <div class="multiple-text-shadow subtitle" id="subtitle_text"></div>
+  <script type="text/javascript" src="https://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+  <script src="tts_and_subtitle.js"></script>
+  </body>
+</html>
