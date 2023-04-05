@@ -64,6 +64,7 @@ class ChatGPTConversation:
             model = "gpt-3.5-turbo",
             messages = messages
         )
+        logging.info(str(response['usage']))
         reply_message = response['choices'][0]['message']['content'].strip()
 
         return reply_message 

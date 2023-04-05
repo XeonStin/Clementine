@@ -1,6 +1,6 @@
 import logging
 
-from flask import Flask, make_response, request
+from flask import Flask, make_response, request, render_template
 from flask_socketio import SocketIO
 from flask_cors import CORS
  
@@ -97,6 +97,16 @@ def clear():
     conversation.clear()
     logging.info(f'History cleared.')
     return 'History cleared.'
+
+
+@app.route('/subtitle', methods=['GET'])
+def subtitle():
+    return render_template('tts-and-subtitle.html')
+
+    
+@app.route('/chat_console', methods=['GET'])
+def console():
+    return render_template('console.html')
 
 
 @app.route('/history', methods=['GET','POST'])

@@ -16,7 +16,9 @@ let voice;
 function setVoice() {
   const voices = synth.getVoices()
   for (var i in voices) {
+    console.log(voices[i].name)
     if (voices[i].name === VOICE_NAME) {
+      console.log('Voice set: ' + voices[i].name);
       voice = voices[i];
       return ;
     }
@@ -29,7 +31,6 @@ setVoice()
 if (speechSynthesis.onvoiceschanged !== undefined) {
   speechSynthesis.onvoiceschanged = setVoice;
 }
-
 
 function updateSubtitle(text) {
   const view_width = document.body.clientWidth;   // 计算 font-size 的值
@@ -48,7 +49,6 @@ function speakNext(rate=1., pitch=1.) {
     socket.emit('tts_finished', namespace=SOCKETIO_NAMESPACE)
     return ;
   }
-
 
   const text = textList.shift()
   const utterThis = new SpeechSynthesisUtterance(text);

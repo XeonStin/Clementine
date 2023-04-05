@@ -10,7 +10,7 @@ from config import OPENAI_API_KEY, MICROPHONE_DEVICE_INDEX, YOUR_NAME
 
 logging.basicConfig(level=logging.INFO)
 recognizer = sr.Recognizer()
-recognizer.energy_threshold = 100       # 语音检测阈值，需要根据环境情况修改
+recognizer.energy_threshold = 200       # 语音检测阈值，需要根据环境情况修改
 recognizer.dynamic_energy_threshold = False     # 关闭自适应阈值调节，因为不太好用
 
 
